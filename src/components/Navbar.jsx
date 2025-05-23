@@ -3,11 +3,14 @@ import '../styles/index.css';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+   
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
+
+  
     return (
         <>
             <header className="h-auto w-full relative py-[15px] sticky-header">
@@ -20,23 +23,23 @@ const Navbar = () => {
                     {/* Desktop Navigation */}
                     <nav className="z-50 hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                         <ul className="navbar flex flex-col justify-center font-chivo gap-[34px] lg:flex-row">
-                            
-                                <li  className="flex items-center group">
-                                    <a className="hover:text-green-900  text-lg font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Home</a>
-                                </li>
-                                 <li  className="flex items-center group">
-                                    <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">About</a>
-                                </li>
-                                <li  className="flex items-center group">
-                                    <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Contact us</a>
-                                </li>
-                                <li  className="flex items-center group">
-                                    <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Career</a>
-                                </li>
-                                <li  className="flex items-center group">
-                                    <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Login</a>
-                                </li>
-                            
+
+                            <li className="flex items-center group">
+                                <a className="hover:text-green-900  text-lg font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Home</a>
+                            </li>
+                            <li className="flex items-center group">
+                                <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">About</a>
+                            </li>
+                            <li className="flex items-center group">
+                                <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Contact us</a>
+                            </li>
+                            <li className="flex items-center group">
+                                <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Career</a>
+                            </li>
+                            <li className="flex items-center group">
+                                <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Login</a>
+                            </li>
+
                         </ul>
                     </nav>
 
@@ -61,7 +64,7 @@ const Navbar = () => {
 
                 {/* Mobile Navigation */}
                 <nav className={`fixed top-0 right-0 bg-white flex flex-col h-screen nav-shadow overflow-y-scroll transition-all duration-300 w-[280px] sm:w-[320px] z-[100] transform ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0 pointer-events-none'}`}>
-                    
+
                     {/* Close Icon */}
                     <div className="flex justify-end p-4">
                         <button onClick={() => setMenuOpen(false)} className="text-black text-2xl font-bold focus:outline-none hover:text-red-600">
@@ -72,41 +75,43 @@ const Navbar = () => {
                     {/* Menu Items */}
                     <div className="p-[30px] pt-0">
                         <ul className="font-chivo font-medium text-[16px] leading-[16px] space-y-4">
-                            
-                                <li  className="group menu-mobile-item py-[13px]">
-                                    <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                        <p>Home</p>
-                                    </div>
-                                </li>
-                                    <li  className="group menu-mobile-item py-[13px]">
-                                    <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                        <p>About</p>
-                                    </div>
-                                </li>
-                                <li  className="group menu-mobile-item py-[13px]">
-                                    <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                        <p>Contact us</p>
-                                    </div>
-                                </li>
-                                    <li  className="group menu-mobile-item py-[13px]">
-                                    <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                        <p>Career</p>
-                                    </div>
-                                </li>
-                                    <li  className="group menu-mobile-item py-[13px]">
-                                    <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                        <p>Login</p>
-                                    </div>
-                                </li>
-                                    <li  className="group menu-mobile-item py-[13px]">
-                                    <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                        <p>Join now</p>
-                                    </div>
-                                </li>
+
+                            <li className="group menu-mobile-item py-[13px]">
+                                <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
+                                    <p>Home</p>
+                                </div>
+                            </li>
+                            <li className="group menu-mobile-item py-[13px]">
+                                <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
+                                    <p>About</p>
+                                </div>
+                            </li>
+                            <li className="group menu-mobile-item py-[13px]">
+                                <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
+                                    <p>Contact us</p>
+                                </div>
+                            </li>
+                            <li className="group menu-mobile-item py-[13px]">
+                                <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
+                                    <p>Career</p>
+                                </div>
+                            </li>
+                            <li className="group menu-mobile-item py-[13px]">
+                                <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
+                                    <p>Login</p>
+                                </div>
+                            </li>
+                            <li className="group menu-mobile-item py-[13px]">
+                                <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
+                                    <p>Join now</p>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </header>
+
+           
         </>
     );
 };

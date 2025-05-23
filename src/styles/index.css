@@ -2,6 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+.group:hover .group-hover\:filter-white {
+  filter: brightness(0) invert(1);
+}
+
+
+.top_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.top_btn {
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    background-color: #006d77;
+    border: none;
+    border-radius: 40px;
+    position: fixed;
+    right: 2rem;
+    z-index: 999;
+    padding: 10px;
+    bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 
 
 
@@ -97,7 +126,7 @@ html {
 body,
 html {
     max-width: 100%;
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 
 .home-page-4 .sticky-header,
@@ -238,13 +267,16 @@ html {
 
 .sticky-header {
     -webkit-animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
-    /* animation: fadeInDown .7s ease-in-out 0s 1 normal none running; */
+    animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
     background-color: #fff;
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .05);
     position: fixed !important;
     top: 0;
-    z-index: 100
+    z-index: 100;
+    width: 100%;
 }
+
+
 
 nav .menu-mobile-item.expand .menu-child {
     display: block
@@ -577,14 +609,15 @@ input:checked~.dot {
         display: none;
     }
 
-    .banner-hero.banner-1:before{
-        background:none;
-    }
-    .banner-hero.banner-1:after{
+    .banner-hero.banner-1:before {
         background: none;
     }
 
-    .home_slider_Sec{
-     margin-top: 15px;
+    .banner-hero.banner-1:after {
+        background: none;
+    }
+
+    .home_slider_Sec {
+        margin-top: 15px;
     }
 }
