@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import '../styles/index.css';
 
-import logo from '../assets/images/logo.png';
-
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -16,7 +14,7 @@ const Navbar = () => {
                 <div className="px-[12px] md:px-[36px] xl:px-0 flex items-center justify-between mx-auto max-w-[1320px]">
                     {/* Logo */}
                     <a className="flex" href="index.html">
-                        <img className="logo z-50 w-[100%] md:w-[101px] lg:w-[122px] xl:w-[220px] " src={logo} alt="logo" />
+                        <img className="logo z-50 w-[100%] md:w-[101px] lg:w-[122px] xl:w-[220px] " src="/assets/images/logo.png" alt="logo" />
                     </a>
 
                     {/* Desktop Navigation */}

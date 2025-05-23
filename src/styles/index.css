@@ -55,7 +55,7 @@ html {
 }
 
 .banner-hero.banner-1:before {
-    background: url(../../src/assets/images/icons/pattern-2.svg) no-repeat;
+    background: url(/assets/images/icons/pattern-2.svg) no-repeat;
     background-size: cover;
     content: "";
     height: 265px;
@@ -67,7 +67,7 @@ html {
 }
 
 .banner-hero.banner-1:after {
-    background: url(../../src/assets/images/icons/pattern-1.svg) no-repeat;
+    background: url(/assets/images/icons/pattern-1.svg) no-repeat;
     background-size: cover;
     bottom: 0;
     content: "";
@@ -288,14 +288,14 @@ details summary h4 {
 }
 
 details summary:after {
-    content: url(../../src/assets/images/icons/icon-angle-down-fill.svg);
+    content: url(/assets/images/icons/icon-angle-down-fill.svg);
     display: block;
     height: 24px;
     width: 24px
 }
 
 details[open]>summary:after {
-    content: url(../../src/assets/images/icons/icon-angle-up-fill.svg)
+    content: url(/assets/images/icons/icon-angle-up-fill.svg)
 }
 
 details[open]>summary {
