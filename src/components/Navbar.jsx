@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../styles/index.css';
 
-import logo from '../assets/images/logo.svg';
+import logo from '../assets/images/logo.png';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -12,11 +12,11 @@ const Navbar = () => {
 
     return (
         <>
-            <header className="h-auto w-full relative py-[15px] lg:py-[26px] bg-[#FFFFFF] sticky-header">
+            <header className="h-auto w-full relative py-[15px] sticky-header">
                 <div className="px-[12px] md:px-[36px] xl:px-0 flex items-center justify-between mx-auto max-w-[1320px]">
                     {/* Logo */}
                     <a className="flex" href="index.html">
-                        <img className="logo z-50 w-[90px] md:w-[101px] lg:w-[122px] xl:w-[138px]" src={logo} alt="logo" />
+                        <img className="logo z-50 w-[100%] md:w-[101px] lg:w-[122px] xl:w-[220px] " src={logo} alt="logo" />
                     </a>
 
                     {/* Desktop Navigation */}
@@ -24,7 +24,7 @@ const Navbar = () => {
                         <ul className="navbar flex flex-col justify-center font-chivo gap-[34px] lg:flex-row">
                             
                                 <li  className="flex items-center group">
-                                    <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Home</a>
+                                    <a className="hover:text-green-900  text-lg font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Home</a>
                                 </li>
                                  <li  className="flex items-center group">
                                     <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">About</a>

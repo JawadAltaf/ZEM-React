@@ -231,13 +231,14 @@ html {
     z-index: 11
 }
 
+
 .overlay.show {
     display: initial
 }
 
-header.sticky-header {
+.sticky-header {
     -webkit-animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
-    animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
+    /* animation: fadeInDown .7s ease-in-out 0s 1 normal none running; */
     background-color: #fff;
     box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .05);
     position: fixed !important;
@@ -565,3 +566,25 @@ input:checked~.dot {
 }
 
 /*# sourceMappingURL=app.min.css.map */
+
+
+@media screen and (max-width:768px) {
+    .cards_Section {
+        margin-top: 1.25rem;
+    }
+
+    .mbl_none {
+        display: none;
+    }
+
+    .banner-hero.banner-1:before{
+        background:none;
+    }
+    .banner-hero.banner-1:after{
+        background: none;
+    }
+
+    .home_slider_Sec{
+     margin-top: 15px;
+    }
+}

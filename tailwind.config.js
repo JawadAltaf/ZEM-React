@@ -7,12 +7,12 @@ export default {
   theme: {
     extend: {
       animation: {
-        'hero-thumb-sm-animation': 'float 4s linear infinite alternate',
+        'hero-thumb-sm-animation': 'slideX 2s linear infinite alternate',
       },
       keyframes: {
-        float: {
-          '0%': { transform: 'translateY(0)' },
-          '100%': { transform: 'translateY(-20px)' },
+        slideX: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(20px)' },
         }
       }
     },

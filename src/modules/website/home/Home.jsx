@@ -1,3 +1,4 @@
+import Card from '../../../components/Card';
 import HomeSlider from '../../../components/HomeSlider';
 import Navbar from '../../../components/Navbar';
 
@@ -7,7 +8,7 @@ const Home = () => {
 
             <Navbar />
             <HomeSlider />
-
+            <Card />
 
         </>
     )
