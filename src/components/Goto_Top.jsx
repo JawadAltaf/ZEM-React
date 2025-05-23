@@ -24,7 +24,7 @@ const Goto_Top = () => {
             {isVisible && (
                 <div className="top_div">
                     <img className="top_btn" onClick={gotoBtn}
-                        src="assets/images/icons/icon-up.svg"
+                        src="/assets/images/icons/icon-up.svg"
                     />
                 </div>
             )}
