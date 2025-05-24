@@ -4,6 +4,7 @@ import Contact from "../modules/website/Contact/Contact";
 import Home from "../modules/website/home/Home";
 
 import { Routes, Route } from 'react-router-dom';
+import Login from "../modules/website/Login/Login";
 
 export default function WebsiteRoutes() {
     return (
@@ -12,6 +13,7 @@ export default function WebsiteRoutes() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/career" element={<Career />} />
+            <Route path="/login" element={<Login />} />
 
         </Routes>
     )
