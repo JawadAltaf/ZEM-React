@@ -1,12 +1,13 @@
 import '../styles/index.css';
 
-const WhoWeSec = () => {
+const WhoWeSec = ({title}) => {
+    
     return (
         <>
-            <div className="px-[12px] m-3  md:px-[36px] xl:px-0 mt-[70px] lg:mt-[100px]">
+            <div className="px-[12px] m-3  md:px-[36px] xl:px-0 mt-[70px] lg:mt-[120px]">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-[30px] xl:gap-[95px]">
                     <div className="relative"><img className="rounded-2xl mb-[30px] lg:mb-0 lg:flex-1 " src="/assets/images/CCTV-Security.jpg" alt="Agon" /></div>
-                    <div className="flex-1 order-1"><span className="font-chivo inline-block bg-bg-2 text-orange-900 py-[14px] px-[28px] rounded-[50px] text-[14px] leading-[14px] mb-[22px]">WHO WE ARE</span>
+                    <div className="flex-1 order-1"><span className="font-chivo inline-block bg-bg-2 text-orange-900 py-[14px] px-[28px] rounded-[50px] text-[14px] leading-[14px] mb-[22px]">{title}</span>
                         <h3 className="font-chivo font-bold lg:text-heading-1 md:text-[46px] md:leading-[52px] text-[35px] leading-[44px] mb-[22px]">Dedicated Team With Ontime Response The <br className='mbl_none'/> Leader In Protecting</h3>
                         <p className="text-quote md:text-lead-lg text-gray-600 mb-[50px]">ZEM Services Limited is the most credible viable and technology-driven total facility management provider in the UK. We have designed our total management solutions structure for domestic and commercial sectors after a thorough study of the challenges faced by these sectors.
                         </p>

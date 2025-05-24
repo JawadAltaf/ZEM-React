@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import '../styles/index.css';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
-   
+
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
     };
 
 
-  
+
     return (
         <>
             <header className="h-auto w-full relative py-[15px] sticky-header">
@@ -25,13 +26,13 @@ const Navbar = () => {
                         <ul className="navbar flex flex-col justify-center font-chivo gap-[34px] lg:flex-row">
 
                             <li className="flex items-center group">
-                                <a className="hover:text-green-900  text-lg font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Home</a>
+                                <Link to={'/'} className="hover:text-green-900  text-lg font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Home</Link>
                             </li>
                             <li className="flex items-center group">
-                                <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">About</a>
+                                <Link to={'/about'} className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">About</Link>
                             </li>
                             <li className="flex items-center group">
-                                <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Contact us</a>
+                                <Link to={'/contact'} className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Contact us</Link>
                             </li>
                             <li className="flex items-center group">
                                 <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Career</a>
@@ -78,17 +79,17 @@ const Navbar = () => {
 
                             <li className="group menu-mobile-item py-[13px]">
                                 <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                    <p>Home</p>
+                                    <Link to={'/'}>Home</Link>
                                 </div>
                             </li>
                             <li className="group menu-mobile-item py-[13px]">
                                 <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                    <p>About</p>
+                                    <Link to={'/about'}> About</Link>
                                 </div>
                             </li>
                             <li className="group menu-mobile-item py-[13px]">
                                 <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                    <p>Contact us</p>
+                                    <Link to={'/contact'}>Contact us</Link>
                                 </div>
                             </li>
                             <li className="group menu-mobile-item py-[13px]">
@@ -111,7 +112,7 @@ const Navbar = () => {
                 </nav>
             </header>
 
-           
+
         </>
     );
 };

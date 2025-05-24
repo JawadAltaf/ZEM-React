@@ -1,46 +1,30 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Card from '../../../components/Card';
 import Goto_Top from '../../../components/Goto_Top';
 import HomeSlider from '../../../components/HomeSlider';
-import Loader from '../../../components/Loader';
 import Navbar from '../../../components/Navbar';
 import TestimonialSlider from '../../../components/Slider';
-
 import WhoWeSec from '../../../components/WhoWeSec';
 import WhyChoose from '../../../components/WhyChoose';
+import Footer from '../../../components/Footer';
 
 
 const Home = () => {
-    const [loading, setLoading] = useState(true)
-
     useEffect(() => {
-        setTimeout(() => {
-            setLoading(false)
-        }, 3000)
+        window.scrollTo(0, 0)
     }, [])
+
 
     return (
         <>
-
-            {
-                loading ? <Loader /> :
-                    <>
-                        <Navbar />
-                        <HomeSlider />
-                        <Card />
-                        <WhoWeSec />
-                        <Goto_Top />
-                        <WhyChoose />
-                        <TestimonialSlider />
-                    </>
-            }
-
-
-
-
-
-
-
+            <Navbar />
+            <HomeSlider />
+            <Card />
+            <WhoWeSec title="WHO WE ARE" />
+            <Goto_Top />
+            <WhyChoose />
+            <TestimonialSlider />
+            <Footer />
         </>
     )
 }
