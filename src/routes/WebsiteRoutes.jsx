@@ -1,4 +1,5 @@
 import About from "../modules/website/About/About";
+import Career from "../modules/website/Career/Career";
 import Contact from "../modules/website/Contact/Contact";
 import Home from "../modules/website/home/Home";
 
@@ -10,6 +11,7 @@ export default function WebsiteRoutes() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/career" element={<Career />} />
 
         </Routes>
     )

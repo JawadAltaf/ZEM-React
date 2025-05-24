@@ -3,7 +3,7 @@ import '../styles/index.css';
 const Footer = () => {
     return (
         <>
-            <footer className="mt-[52px] lg:mt-[120px]  pb-3">
+            <footer className="mt-[52px]  pb-3">
                 <div className="px-[12px] md:px-[36px] xl:px-0 mt-[70px]">
 
                     <div className="w-full bg-gray-200 h-[1px] mb-[52px]"></div>

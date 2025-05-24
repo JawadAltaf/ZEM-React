@@ -35,7 +35,7 @@ const Navbar = () => {
                                 <Link to={'/contact'} className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Contact us</Link>
                             </li>
                             <li className="flex items-center group">
-                                <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Career</a>
+                                <Link to={'/career'} className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Career</Link>
                             </li>
                             <li className="flex items-center group">
                                 <a className="hover:text-green-900 text-base font-inter menu-link lg:text-heading-6 mr-[7px]" href="#">Login</a>
@@ -94,7 +94,7 @@ const Navbar = () => {
                             </li>
                             <li className="group menu-mobile-item py-[13px]">
                                 <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                    <p>Career</p>
+                                    <Link to={'/career'}>Career</Link>
                                 </div>
                             </li>
                             <li className="group menu-mobile-item py-[13px]">
