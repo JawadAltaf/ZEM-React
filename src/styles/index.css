@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.company_fields {
+    margin-top: 30px !important;
+}
+
+.user_fields {
+    margin-top: 30px !important;
+}
+
 .shadow {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -9,6 +18,11 @@
 .login_page_form {
     width: 500px !important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.register_page_form {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+
 }
 
 .group:hover .group-hover\:filter-white {
@@ -212,9 +226,6 @@ html {
 
 @media (min-width:768px) {
 
-    .login_page_form{
-        max-width: 100%;
-    }
 
     .burger-icon {
         right: 37px
@@ -442,9 +453,15 @@ details[open]>summary h4 {
 }
 
 @media screen and (min-width:1024px) {
-    .login_page_form{
+    .login_page_form {
         width: 100%;
     }
+
+    .register_page_form {
+        width: 100%;
+
+    }
+
     .product-nav .slick-track {
         display: flex !important;
         flex-direction: column;
@@ -639,9 +656,15 @@ input:checked~.dot {
 
 
 @media screen and (max-width:768px) {
-    .login_page_form{
+    .login_page_form {
         width: 100%;
     }
+
+    .register_page_form {
+        width: 100%;
+
+    }
+
     .cards_Section {
         margin-top: 1.25rem;
     }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../styles/index.css';
 
 
@@ -14,7 +15,7 @@ const HomeSlider = () => {
             <p className="text-quote  md:text-lead-lg text-gray-500 pr-[40px] lg:pr-[60px] mb-[40px]">Zem Services Limited is a well-known security company, offers a range of leading security services. Our mission is to provide hassle-free security services by providing experienced, licensed, and highly dedicated security personnel. We offer state-of-the-art and fully equipped with the latest technology tools security personnel to secure your premises and properties.
             </p>
             <div className="flex items-center justify-start">
-              <button type="button"> <a className="flex items-center z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-[50px]  text-white hover:bg-gray-100 hover:text-gray-900 bg-gray-900 text-heading-6 tracking-wide mr-[22px] hover:translate-y-[-2px]" href="#"><span className="block text-inherit w-full h-full rounded-[50px] text-lg font-chivo font-semibold">Join Now</span></a></button>
+              <button type="button"> <Link to={'/register'} className="flex items-center z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-[50px]  text-white hover:bg-gray-100 hover:text-gray-900 bg-gray-900 text-heading-6 tracking-wide mr-[22px] hover:translate-y-[-2px]" href="#"><span className="block text-inherit w-full h-full rounded-[50px] text-lg font-chivo font-semibold">Join Now</span></Link></button>
             </div>
           </div>
           <div className="hidden relative flex-1 h-auto self-stretch lg:block">

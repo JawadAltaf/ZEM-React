@@ -1,10 +1,10 @@
+import { Routes, Route } from 'react-router-dom';
 import About from "../modules/website/About/About";
 import Career from "../modules/website/Career/Career";
 import Contact from "../modules/website/Contact/Contact";
 import Home from "../modules/website/home/Home";
-
-import { Routes, Route } from 'react-router-dom';
 import Login from "../modules/website/Login/Login";
+import Register from "../modules/website/Register/Register";
 
 export default function WebsiteRoutes() {
     return (
@@ -14,6 +14,7 @@ export default function WebsiteRoutes() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/career" element={<Career />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
 
         </Routes>
     )

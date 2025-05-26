@@ -47,9 +47,9 @@ const Navbar = () => {
                     {/* CTA Button */}
                     <div className="hidden xl:block">
                         <button type="button">
-                            <a className="flex items-center z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-[50px] bg-gray-100 text-gray-900 hover:bg-gray-900 hover:text-white" href="#">
+                            <Link to={'/register'} className="flex items-center z-10 relative transition-all duration-200 group px-[22px] py-[15px] lg:px-[32px] lg:py-[22px] rounded-[50px] bg-gray-100 text-gray-900 hover:bg-gray-900 hover:text-white" href="#">
                                 <span className="block text-inherit w-full h-full rounded-[50px] text-heading-6 font-bold font-chivo">Join now</span>
-                            </a>
+                            </Link>
                         </button>
                     </div>
 
@@ -104,7 +104,7 @@ const Navbar = () => {
                             </li>
                             <li className="group menu-mobile-item py-[13px]">
                                 <div className="flex items-center justify-between transition-all duration-200 hover:text-green-900 hover:translate-x-[2px]">
-                                    <p>Join now</p>
+                                    <Link to={'/register'}>Join now</Link>
                                 </div>
                             </li>
                         </ul>

@@ -9,7 +9,7 @@ const LoginPage = () => {
                         Welcome Back
                     </h2>
 
-                    <form className="bg-white w-full login_page_form p-8 shadow-3 rounded-[6px] md:p-10 lg:p-10" action="#">
+                    <form className="bg-white w-full login_page_form p-8 shadow-3 rounded-xl md:p-10 lg:p-10" action="#">
                         <div className="relative mb-6">
                             <input
                                 className="outline-none flex-1 pr-3 border caret-green-900 w-full placeholder:text-gray-400 placeholder:text-text placeholder:font-chivo border-[#C2C8D0] rounded-[4px] py-[14px] pl-[16px] focus:border-green-900 focus:border-[2px]"

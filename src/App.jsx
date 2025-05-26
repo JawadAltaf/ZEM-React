@@ -3,6 +3,9 @@ import Loader from './components/Loader';
 import WebsiteRoutes from './routes/WebsiteRoutes';
 import './styles/index.css';
 import { BrowserRouter } from 'react-router-dom';
+import "slick-carousel/slick/slick.min.js";
+import "slick-carousel/slick/slick.css";
+
 
 
 
