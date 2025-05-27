@@ -12,14 +12,16 @@ const Navbar = () => {
 
 
 
+
+
     return (
         <>
             <header className="h-auto w-full relative py-[15px] sticky-header">
                 <div className="px-[12px] md:px-[36px] xl:px-0 flex items-center justify-between mx-auto max-w-[1320px]">
                     {/* Logo */}
-                    <a className="flex" href="index.html">
+                    <Link to={'/'} className="flex" >
                         <img className="logo z-50 w-[100%] md:w-[101px] lg:w-[122px] xl:w-[220px] " src="/assets/images/logo.png" alt="logo" />
-                    </a>
+                    </Link>
 
                     {/* Desktop Navigation */}
                     <nav className="z-50 hidden lg:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">

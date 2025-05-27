@@ -1,10 +1,51 @@
 import { Link } from 'react-router-dom';
 import '../styles/index.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
+
+
+const countries = [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina",
+    "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
+    "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
+    "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei",
+    "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada",
+    "Chad", "Chile", "China", "Colombia", "Comoros", "Costa Rica", "Croatia",
+    "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica",
+    "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Estonia",
+    "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia",
+    "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guyana",
+    "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran",
+    "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan",
+    "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia",
+    "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania",
+    "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali",
+    "Malta", "Mauritania", "Mauritius", "Mexico", "Moldova", "Monaco",
+    "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia",
+    "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria",
+    "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau",
+    "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland",
+    "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis",
+    "Saint Lucia", "Samoa", "San Marino", "Saudi Arabia", "Senegal", "Serbia",
+    "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia",
+    "Solomon Islands", "Somalia", "South Africa", "South Korea", "Spain",
+    "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+    "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga",
+    "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+    "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
+    "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City",
+    "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
+];
+
 const RegisterForm = () => {
+    const Dropdownref = useRef(null)
     const [selectedCountry, setSelectedCountry] = useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+    const [isOpen, setIsOpen] = useState(false);
+    const [filteredCountries, setFilteredCountries] = useState(countries);
+
+
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [generatedPassword, setGeneratedPassword] = useState("");
@@ -80,6 +121,10 @@ const RegisterForm = () => {
 
 
 
+
+
+
+
     const HandleCopied = () => {
         if (!generatedPassword) return;
 
@@ -100,41 +145,33 @@ const RegisterForm = () => {
             setCopied(false);
         }, 3000); // Icon back after 3 seconds
 
-       
+
     }
 
-    const countries = [
-        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Argentina",
-        "Armenia", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain",
-        "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
-        "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei",
-        "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada",
-        "Chad", "Chile", "China", "Colombia", "Comoros", "Costa Rica", "Croatia",
-        "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica",
-        "Dominican Republic", "Ecuador", "Egypt", "El Salvador", "Estonia",
-        "Ethiopia", "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia",
-        "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guyana",
-        "Haiti", "Honduras", "Hungary", "Iceland", "India", "Indonesia", "Iran",
-        "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan",
-        "Kazakhstan", "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia",
-        "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania",
-        "Luxembourg", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali",
-        "Malta", "Mauritania", "Mauritius", "Mexico", "Moldova", "Monaco",
-        "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar", "Namibia",
-        "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria",
-        "North Korea", "North Macedonia", "Norway", "Oman", "Pakistan", "Palau",
-        "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland",
-        "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis",
-        "Saint Lucia", "Samoa", "San Marino", "Saudi Arabia", "Senegal", "Serbia",
-        "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia",
-        "Solomon Islands", "Somalia", "South Africa", "South Korea", "Spain",
-        "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
-        "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Togo", "Tonga",
-        "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
-        "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom",
-        "United States", "Uruguay", "Uzbekistan", "Vanuatu", "Vatican City",
-        "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
-    ];
+
+
+
+    useEffect(() => {
+        setFilteredCountries(
+            countries.filter((country) =>
+                country.toLowerCase().includes(searchTerm.toLowerCase())
+            )
+        );
+    }, [searchTerm, countries]);
+
+
+    useEffect(() => {
+        function handleclickOutside(event) {
+            if (Dropdownref.current && !Dropdownref.current.contains(event.target)) {
+                setIsOpen(false)
+            }
+        }
+
+        document.addEventListener("mousedown", handleclickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleclickOutside);
+        };
+    }, [])
 
 
 
@@ -477,34 +514,47 @@ const RegisterForm = () => {
 
                         <div className="flex flex-col gap-4 mt-8 md:flex-row md:gap-4">
                             {/* Country Selector */}
-                            <div className="relative w-full md:w-1/3">
-                                <select
-                                    className="peer appearance-none outline-none pr-10 border caret-green-900 w-full placeholder:text-gray-400 placeholder:font-chivo border-[#C2C8D0] rounded-[4px] py-[14px] pl-[16px] focus:border-green-900 focus:border-[2px]"
-                                    value={selectedCountry}
-                                    onChange={(e) => setSelectedCountry(e.target.value)}
+
+
+                            <div ref={Dropdownref} className="relative w-full md:w-1/3">
+                                <div
+                                    onClick={() => setIsOpen(!isOpen)}
+                                    className="cursor-pointer border border-[#C2C8D0] text-start  rounded-[4px] py-[14px] px-[16px] focus-within:border-green-900"
                                 >
-                                    <option value="">Please Select</option>
-                                    {countries.map((country, idx) => (
-                                        <option key={idx} value={country}>
-                                            {country}
-                                        </option>
-                                    ))}
-                                </select>
-                                <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
-                                    <svg
-                                        className="w-4 h-4"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M19 9l-7 7-7-7"
-                                        />
-                                    </svg>
+                                    {selectedCountry || "Search country..."}
                                 </div>
+
+                                {isOpen && (
+                                    <div className="absolute z-10 w-full bg-white border border-[#C2C8D0] rounded mt-1 shadow-md">
+                                        <input
+                                            type="text"
+                                            placeholder="Search country..."
+                                            value={searchTerm}
+                                            onChange={(e) => setSearchTerm(e.target.value)}
+                                            className="w-full px-3 py-2 outline-none border-b  border-gray-200 placeholder:text-sm"
+                                        />
+                                        <ul className="max-h-60 overflow-y-auto">
+                                            {filteredCountries.length > 0 ? (
+                                                filteredCountries.map((country, idx) => (
+                                                    <li
+                                                        key={idx}
+                                                        onClick={() => {
+                                                            setSelectedCountry(country);
+                                                            setIsOpen(false);
+                                                            setSearchTerm("");
+                                                        }}
+                                                        className="px-3 py-2 hover:bg-gray-100 text-gray-400  text-start cursor-pointer"
+                                                    >
+                                                        {country}
+                                                    </li>
+                                                ))
+                                            ) : (
+                                                <li className="px-3 py-2 text-gray-400">No results found</li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                )}
+
                                 <span className="text-gray-400 text-sm px-1 font-chivo font-medium absolute left-3 bg-white -translate-y-5 top-[10px]">
                                     Country *
                                 </span>
@@ -554,9 +604,9 @@ const RegisterForm = () => {
                             <div className="relative w-7 h-7 transition-all duration-200 p-[5px] hover:bg-gray-200 rounded-[4px]">
                                 <input
                                     className="opacity-0 cursor-pointer relative z-10 peer"
-                                    id="term"
+                                    id="term1"
                                     type="checkbox"
-                                    name="term"
+                                    name="term1"
                                 />
                                 <img
                                     className="absolute hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 peer-checked:block"
@@ -574,9 +624,9 @@ const RegisterForm = () => {
                             <div className="relative w-7 h-7 transition-all duration-200 p-[5px] hover:bg-gray-200 rounded-[4px]">
                                 <input
                                     className="opacity-0 cursor-pointer relative z-10 peer"
-                                    id="term"
+                                    id="term2"
                                     type="checkbox"
-                                    name="term"
+                                    name="term2"
                                 />
                                 <img
                                     className="absolute hidden top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 peer-checked:block"
