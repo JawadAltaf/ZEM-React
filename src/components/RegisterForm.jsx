@@ -521,14 +521,14 @@ const RegisterForm = () => {
                                     onClick={() => setIsOpen(!isOpen)}
                                     className="cursor-pointer border border-[#C2C8D0] text-start  rounded-[4px] py-[14px] px-[16px] focus-within:border-green-900"
                                 >
-                                    {selectedCountry || "Search country..."}
+                                    {selectedCountry || "Search Country..."}
                                 </div>
 
                                 {isOpen && (
                                     <div className="absolute z-10 w-full bg-white border border-[#C2C8D0] rounded mt-1 shadow-md">
                                         <input
                                             type="text"
-                                            placeholder="Search country..."
+                                            placeholder="Search Country..."
                                             value={searchTerm}
                                             onChange={(e) => setSearchTerm(e.target.value)}
                                             className="w-full px-3 py-2 outline-none border-b  border-gray-200 placeholder:text-sm"
