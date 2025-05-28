@@ -11,9 +11,6 @@ const Navbar = () => {
     };
 
 
-
-
-
     return (
         <>
             <header className="h-auto w-full relative py-[15px] sticky-header">
