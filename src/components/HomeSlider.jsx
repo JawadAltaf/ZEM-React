@@ -8,7 +8,7 @@ const HomeSlider = () => {
         <div className="px-[12px] md:px-[36px] xl:px-0 mt-0 z-10 relative mx-auto py-[60px] max-w-[1320px] lg:flex lg:items-center">
           <div className="flex-1 lg:mt-20">
             <h1 className="font-chivo font-bold lg:text-display-2 md:text-[56px] md:leading-[70px] sm:text-[50px] sm:leading-[58px] text-[40px] leading-[48px] mb-[10px]">
-              ZEM SECURITY SERVICES BY ZAHID
+              ZEM SECURITY SERVICES
             </h1>
             <h5 className="font-chivo font-bold lg:text-display-2 md:text-[34px] md:leading-[70px] sm:text-[30px] sm:leading-[58px]  mb-[20px]">
               Your Peace of Mind Is Our Job!
