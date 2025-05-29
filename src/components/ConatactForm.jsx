@@ -4,7 +4,7 @@ import '../styles/index.css';
 const ConatactForm = () => {
     return (
         <>
-            <div className="bg-gray-100 relative p-[40px] md:pt-[91px] md:pr-[98px] md:pb-[86px] md:pl-[92px] mt-[120px] rounded-[58px]">
+            <div className="bg-gray-100 relative p-[40px] md:pt-[91px] md:pr-[98px] md:pb-[86px] md:pl-[92px] mt-[30px] rounded-[58px]">
                 <div className="mx-auto relative max-w-[1320px]">
                     <img className="absolute right-0 max-w-[129px] top-[-50px]" src="assets/images/mail.png" alt="mail image" />
 

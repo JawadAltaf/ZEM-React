@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/index.css';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
 
     const toggleMenu = () => {
@@ -11,9 +12,25 @@ const Navbar = () => {
     };
 
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setScrolled(true);
+                
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
     return (
         <>
-            <header className="h-auto w-full relative py-[15px] sticky-header">
+            <header className={`h-auto w-full relative py-[15px] ${scrolled ? 'sticky-header' : ''}`}>
                 <div className="px-[12px] md:px-[36px] xl:px-0 flex items-center justify-between mx-auto max-w-[1320px]">
                     {/* Logo */}
                     <Link to={'/'} className="flex" >

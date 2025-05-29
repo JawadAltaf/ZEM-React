@@ -19,7 +19,8 @@
     width: 500px !important;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
-.reset_page{
+
+.reset_page {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
@@ -318,13 +319,24 @@ html {
     -webkit-animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
     animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
     background-color: #fff;
-    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .05);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     position: fixed !important;
     top: 0;
     z-index: 100;
     width: 100%;
 }
 
+
+.scrolled {
+    -webkit-animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
+    animation: fadeInDown .7s ease-in-out 0s 1 normal none running;
+    background-color: #fff;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, .05);
+    position: fixed !important;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+}
 
 
 nav .menu-mobile-item.expand .menu-child {

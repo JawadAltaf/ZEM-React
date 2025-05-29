@@ -16,7 +16,7 @@ const ConformPassword = () => {
     }
     return (
         <>
-            <div className="px-[12px] md:px-[36px] xl:px-0 mt-[120px] text-center">
+            <div className="px-[12px] md:px-[36px] xl:px-0 mt-[20px] text-center">
                 <h2 className="font-bold font-chivo text-[25px] leading-[30px] md:text-heading-3 mb-[13px]">Confirm password
                 </h2>
                 <p className="text-text text-gray-500 mb-[60px]">Please Enter Your New Password & Confirm New Password

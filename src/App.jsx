@@ -25,7 +25,7 @@ function App() {
           <BrowserRouter>
             <Routes>
               {...WebsiteRoutes()}
-              {/* {...AdminRoutes()} */}
+              {...AdminRoutes()}
             </Routes>
           </BrowserRouter>
         </>

@@ -4,7 +4,7 @@ import "../styles/index.css";
 const HomeSlider = () => {
   return (
     <>
-      <div className="lg:mt-[50px]  full-width banner-hero lg:h-150 md:h-auto bg-orange-100 banner-1 home_slider_Sec">
+      <div className="  full-width banner-hero lg:h-150  md:h-auto bg-orange-100 banner-1 home_slider_Sec">
         <div className="px-[12px] md:px-[36px] xl:px-0 mt-0 z-10 relative mx-auto py-[60px] max-w-[1320px] lg:flex lg:items-center">
           <div className="flex-1 lg:mt-20">
             <h1 className="font-chivo font-bold lg:text-display-2 md:text-[56px] md:leading-[70px] sm:text-[50px] sm:leading-[58px] text-[40px] leading-[48px] mb-[10px]">

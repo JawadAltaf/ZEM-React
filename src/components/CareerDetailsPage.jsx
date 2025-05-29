@@ -39,6 +39,7 @@ const countries = [
 
 
 const CareerDetailsPage = () => {
+    const [selectedJob, setSelectedJob] = useState(data[0]);
     const [selectedSource, setSelectedSource] = useState("");
     const Dropdownref = useRef(null)
     const [selectedCountry, setSelectedCountry] = useState("");
@@ -49,7 +50,17 @@ const CareerDetailsPage = () => {
 
 
     const { id } = useParams();
-    const job = data.find((j) => j.id === id)
+    useEffect(() => {
+        const job = data.find((j) => j.id === id)
+        if (job) {
+            setSelectedJob(job)
+        }
+
+    }, [id])
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, [selectedJob]);
 
 
     useEffect(() => {
@@ -77,67 +88,92 @@ const CareerDetailsPage = () => {
 
     return (
         <>
-            <div className="full-width bg-[#FFF3EA] mt-[50px] lg:mt-[100px] md:mt-[50px]">
+            <div className="full-width bg-[#FFF3EA] ">
                 <div className="text-center px-5 pt-[74px] pb-[90px]">
-                    <h2 className="font-bold font-chivo text-[28px] leading-[32px] md:text-heading-2 mx-auto mb-[22px] md:w-[27ch]">{job.heading}
+                    <h2 className="font-bold font-chivo text-[28px] leading-[32px] md:text-heading-2 mx-auto mb-[22px] md:w-[27ch]">{selectedJob.heading}
                     </h2>
                     <div className="flex items-center justify-center"><Link to={'/'} className="text-text" href="index.html">Home</Link><a className="text-text text-gray-500" href="#">/ Jobs details</a></div>
                 </div>
             </div>
+
+
+
+
             <div className="px-[12px] md:px-[36px] xl:px-0 mt-[70px] mx-auto max-w-[1090px]">
-                <div className="mx-auto max-w-[866px]">
-                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">Job Description</h3>
-                    <p className="text-text">
-                        The AliStudio Design team has a vision to establish a trusted platform that enables productive and healthy
-                        enterprises...
-                    </p>
-                    <br />
-                    <p className="text-text">
-                        The ideal candidate will have strong creative skills and a portfolio of work which demonstrates...
-                    </p>
-                    <br />
-                </div>
+                <div className="flex flex-col md:flex-row gap-6">
+                    {/* Left Column */}
+                    <div className="w-full h-fit border-none md:w-1/3 border-r rounded-xl border-gray-300 bg-gray-100 p-4 md:p-6">
+                        <h3 className="text-2xl font-bold mb-6 text-center text-gray-800">All Jobs</h3>
+                        <ul className="space-y-2 max-h-[80vh] overflow-y-auto pr-2">
+                            {data.map((job) => (
+                                <Link key={job.id} to={`/career-detail/${job.id}`}>
+                                    <li
+                                        key={job.id}
+                                        onClick={() => setSelectedJob(job)}
+                                        className={`p-3 m-3 rounded-lg cursor-pointer transition duration-200 ease-in-out ${selectedJob?.id === job.id
+                                            ? "bg-blue-100 text-gray-800 font-semibold shadow-sm"
+                                            : "bg-white text-gray-800 hover:bg-gray-200"
+                                            }`}
+                                    >
+                                        {job.heading}
+                                    </li>
+                                </Link>
+                            ))}
+                        </ul>
+                    </div>
 
-                <div className="mx-auto max-w-[866px]">
-                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">
-                        Essential Knowledge, Skills, and Experience
-                    </h3>
-                    <ul className="list-disc pl-5">
-                        <li>A portfolio demonstrating well thought through and polished end to end customer journeys</li>
-                        <li>5+ years of industry experience in interactive design and / or visual design</li>
-                        <li>Excellent interpersonal skills</li>
-                        <li>Aware of trends in mobile, communications, and collaboration</li>
-                        <li>Ability to create highly polished design prototypes, mockups, and other communication artifacts</li>
-                        <li>The ability to scope and estimate efforts accurately and prioritize tasks and goals independently</li>
-                        <li>History of impacting shipping products with your work</li>
-                        <li>A Bachelor’s Degree in Design (or related field) or equivalent professional experience</li>
-                        <li>Proficiency in a variety of design tools such as Figma, Photoshop, Illustrator, and Sketch</li>
-                    </ul>
-                    <br />
+                    {/* Right Column */}
+                    <div className="w-full md:w-2/3">
+                        {selectedJob && (
+                            <>
+                                <div className="mx-auto max-w-[866px]">
+                                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">
+                                        {selectedJob.description}
+                                    </h3>
+                                    <p className="text-text">{selectedJob.jobList1}</p>
+                                    <br />
+                                    <p className="text-text">{selectedJob.jobList2}</p>
+                                    <br />
+                                </div>
 
-                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">Preferred Experience</h3>
-                    <ul className="list-disc pl-5">
-                        <li>Designing user experiences for enterprise software / services</li>
-                        <li>Creating and applying established design principles and interaction patterns</li>
-                        <li>Aligning or influencing design thinking with teams working in other geographies</li>
-                    </ul>
-                    <br />
+                                <div className="mx-auto max-w-[866px]">
+                                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">
+                                        {selectedJob.experience}
+                                    </h3>
+                                    <ul className="list-disc pl-5">
+                                        {selectedJob.experienceList?.map((item, index) => {
+                                            const [key] = Object.keys(item);
+                                            return <li key={index}>{item[key]}</li>;
+                                        })}
+                                    </ul>
+                                    <br />
 
-                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">Product Designer</h3>
-                    <p className="text-text">Product knowledge: Deeply understand the technology and features of the product area...</p>
-                    <p className="text-text">Research: Provide human and business impact and insights for products.</p>
-                    <p className="text-text">
-                        Deliverables: Create deliverables for your product area (e.g., competitive analyses, user flows, wireframes...
-                    </p>
-                    <p className="text-text">
-                        Communication: Communicate the results of UX activities within your product area to the design team...
-                    </p>
+                                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">
+                                        {selectedJob.Preferred}
+                                    </h3>
+                                    <ul className="list-disc pl-5">
+                                        {selectedJob.PreferredList?.map((item, index) => (
+                                            <li key={index}>{item.listone}</li>
+                                        ))}
+                                    </ul>
+                                    <br />
 
-                    <div className="w-full opacity-10 h-[1px] bg-[#061224] mt-[50px] mb-[34px]"></div>
+                                    <h3 className="font-bold font-chivo text-[20px] leading-[26px] md:text-heading-4 mb-[17px]">
+                                        {selectedJob.product}
+                                    </h3>
+                                    <p className="text-text">{selectedJob.product1}</p>
+                                    <p className="text-text">{selectedJob.product2}</p>
+                                    <p className="text-text">{selectedJob.product3}</p>
+                                    <p className="text-text">{selectedJob.product4}</p>
 
-
+                                    <div className="w-full opacity-10 h-[1px] bg-[#061224] mt-[50px] mb-[34px]"></div>
+                                </div>
+                            </>
+                        )}
+                    </div>
                 </div>
             </div>
+
 
 
             <div className="bg-gray-100 relative p-[40px] m-0 lg:m-3 md:m-0  md:pt-[91px] md:pr-[98px] md:pb-[86px] md:pl-[92px] mt-[80px] rounded-[58px]">

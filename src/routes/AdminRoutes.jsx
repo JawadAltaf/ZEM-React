@@ -1,17 +1,14 @@
 import { Routes, Route } from 'react-router-dom';
-// import Home from '../modules/portal/admin/pages/Home/Home';
+import Home from '../modules/portal/admin/pages/Home/Home';
 
 
 const AdminRoutes = () => {
-    return (
+    return [
         <>
-            <Routes>
-
-                {/* <Route path='/admin-dashboard' element={<Home />} /> */}
-            </Routes>
+             <Route key="admin-home" path="/admin-dashboard" element={<Home />} />
 
         </>
-    )
+    ]
 }
 
 export default AdminRoutes;

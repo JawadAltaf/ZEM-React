@@ -4,7 +4,7 @@ const WhoWeSec = ({title}) => {
     
     return (
         <>
-            <div className="px-[12px] m-3  md:px-[36px] xl:px-0 mt-[70px] lg:mt-[120px]">
+            <div className="px-[12px] m-3  md:px-[36px] xl:px-0 mt-[70px] ">
                 <div className="lg:grid lg:grid-cols-2 lg:gap-[30px] xl:gap-[95px]">
                     <div className="relative"><img className="rounded-2xl mb-[30px] lg:mb-0 lg:flex-1 " src="/assets/images/CCTV-Security.jpg" alt="Agon" /></div>
                     <div className="flex-1 order-1"><span className="font-chivo inline-block bg-bg-2 text-orange-900 py-[14px] px-[28px] rounded-[50px] text-[14px] leading-[14px] mb-[22px]">{title}</span>

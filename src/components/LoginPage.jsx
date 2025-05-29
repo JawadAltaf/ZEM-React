@@ -10,7 +10,7 @@ const LoginPage = () => {
     };
     return (
         <>
-            <div className="bg-[#BEE1E6]  full-width bg-bg-6 px-5 text-center flex flex-col items-center justify-center pt-[127px] pb-[100px] ">
+            <div className="bg-[#BEE1E6]  full-width bg-bg-6 px-5 text-center flex flex-col items-center justify-center pt-[50px] pb-[100px] ">
                 <div >
                     <h2 className="font-bold font-chivo text-[25px] leading-[30px] md:text-heading-3 mb-[50px]">
                         Welcome Back
