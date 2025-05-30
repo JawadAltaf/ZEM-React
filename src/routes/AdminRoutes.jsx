@@ -1,36 +1,17 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from '../modules/portal/admin/pages/Home/Home';
+import { Route } from 'react-router-dom';
+import AdminLayout from '../modules/portal/admin/layouts/AdminLayout';
+import Report from '../modules/portal/admin/pages/Report';
+import DashboardHome from '../modules/portal/admin/pages/DashboardHome';
+import Profile from '../modules/portal/admin/pages/Profile';
 
+const AdminRoutes = () => (
+    <Route path="/admin" element={<AdminLayout />}>
+        <Route path='dashboard' element={<DashboardHome />} />
+        <Route path="organization-profile" element={<Profile />} />
+        <Route path="reports" element={<Report />} />
 
-const AdminRoutes = () => {
-    return [
-        <>
-             <Route key="admin-home" path="/admin-dashboard" element={<Home />} />
-
-        </>
-    ]
-}
+        <Route index element={<DashboardHome />} />
+    </Route>
+);
 
 export default AdminRoutes;
-
-
-
-
-
-
-// admin route is tarah banana hay
-
-// routes/AdminRoutes.jsx
-// import { Route } from 'react-router-dom';
-// import Dashboard from '../modules/portal/admin/pages/Dashboard';
-// import Settings from '../modules/portal/admin/pages/Settings';
-// import AdminLayout from '../modules/portal/admin/index';
-
-// export default function AdminRoutes() {
-//   return [
-//     <Route path="/admin" element={<AdminLayout />} key="/admin">
-//       <Route path="dashboard" element={<Dashboard />} />,
-//       <Route path="settings" element={<Settings />} />,
-//     </Route>
-//   ];
-// }

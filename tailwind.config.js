@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,jsx,ts,tsx}",
@@ -8,7 +9,7 @@ export default {
     extend: {
       animation: {
         'hero-thumb-sm-animation': 'slideX 2s linear infinite alternate',
-        
+
       },
       keyframes: {
         slideX: {
