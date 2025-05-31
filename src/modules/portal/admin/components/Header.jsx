@@ -1,12 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Sun, Moon, Search } from 'lucide-react';
+import { Sun, Moon } from 'lucide-react';
 import { useTypewriter, Cursor } from 'react-simple-typewriter'
 
 const Header = ({ theme, toggleTheme }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef(null);
     const [placeholder, setPlaceholder] = useState('');
+    
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -35,12 +36,13 @@ const Header = ({ theme, toggleTheme }) => {
 
 
     return (
-        <header className="bg-white dark:bg-gray-800 shadow px-4 py-3 flex items-center justify-between">
+        <header className="bg-white dark:!bg-gray-800 shadow dashboard_header px-4 py-3 flex items-center justify-end lg:justify-between md:justify-end">
             {/* Search Input */}
             <input
                 type="text"
                 placeholder={placeholder}
-                className="border  dark:border-gray-600 rounded px-4 py-2 lg:w-full  w-60  max-w-md bg-white dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring-2 "
+
+                className="border hidden lg:block md:hidden dark:border-gray-600 rounded px-4 py-2 lg:w-full  w-60  max-w-md bg-white dark:bg-gray-700 text-black dark:text-white focus:outline-none focus:ring-2 "
             />
 
             <div className="flex items-center gap-4">

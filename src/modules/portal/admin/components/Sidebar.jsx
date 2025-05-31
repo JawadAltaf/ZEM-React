@@ -35,7 +35,22 @@ const navItems = [
             },
             {
                 label: "Director's Profile List",
-                to: "/admin/user",
+                to: "/admin/director-profile-list",
+                icon: <Circle size={12} />,
+            },
+             {
+                label: "Upload Company Profile",
+                to: "/admin/upload-company-profile",
+                icon: <Circle size={12} />,
+            },
+             {
+                label: "Document List",
+                to: "/admin/organization-document",
+                icon: <Circle size={12} />,
+            },
+             {
+                label: "Options List",
+                to: "/admin/organization-options",
                 icon: <Circle size={12} />,
             },
         ],
@@ -85,7 +100,7 @@ const Sidebar = () => {
     return (
         <>
             {/* Mobile Hamburger Button */}
-            <div className="md:hidden fixed top-4 right-6 z-50">
+            <div className="md:hidden fixed top-4 left-10 z-50">
                 <button
                     onClick={toggleMobileSidebar}
                     className="text-gray-800 dark:text-white bg-gray-200 dark:bg-gray-700 p-2 rounded-md shadow-md"
@@ -105,20 +120,19 @@ const Sidebar = () => {
 
             <aside
                 className={`
-    fixed top-0 left-0 h-screen bg-gray-800 text-white transition-all duration-300
+    fixed top-0 left-0 h-screen bg-white dark:!bg-gray-800  text-gray-800 dark:!text-white transition-all duration-300
     z-50 flex flex-col 
     ${sidebarOpen ? "w-64" : "w-20"}
     md:static md:translate-x-0
     ${isMobileOpen ? "translate-x-0" : "-translate-x-full"} 
   `}
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
+
             >
 
                 <div className="flex md:hidden justify-end p-2">
                     <button
                         onClick={toggleMobileSidebar}
-                        className="text-white text-xl p-1 hover:bg-gray-700 rounded"
+                        className="text-black dark:text-white text-xl p-1 hover:bg-gray-800 dark:hover:bg-gray-700 rounded"
                     >
                         <X />
                     </button>
@@ -130,8 +144,15 @@ const Sidebar = () => {
                         {sidebarOpen && (
                             <Link to={'/admin/dashboard'}>
                                 <img
-                                    className="logo z-50 w-full md:w-[101px] lg:w-[122px] xl:w-[220px]"
-                                    alt="dashboard logo"
+                                    className="logo z-50 w-full md:w-[101px] lg:w-[122px] xl:w-[220px] block dark:hidden"
+                                    alt="dashboard logo light"
+                                    src="/assets/images/logo.png"
+                                />
+
+                                {/* Dark Mode Logo */}
+                                <img
+                                    className="logo z-50 w-full md:w-[101px] lg:w-[122px] xl:w-[220px] hidden dark:block"
+                                    alt="dashboard logo dark"
                                     src="/assets/images/footer_logo.png"
                                 />
                             </Link>
@@ -140,7 +161,7 @@ const Sidebar = () => {
                     <div className="relative right-8 hidden md:flex p-3">
                         <button
                             onClick={toggleSidebar}
-                            className="text-white text-xl p-1 hover:bg-gray-700 rounded"
+                            className="text-black dark:!text-white text-xl p-1 hover:bg-gray-300 dark:hover:!bg-gray-700 rounded"
                         >
                             {sidebarOpen ? <ListCollapse /> : <Menu />}
                         </button>
@@ -154,7 +175,10 @@ const Sidebar = () => {
 
 
                 {/* Navigation */}
-                <nav className="flex flex-col sidebar-scroll  space-y-1 p-2 flex-1 min-h-0 overflow-y-auto">
+                <nav className="flex flex-col sidebar-scroll  space-y-1 p-2 flex-1 min-h-0 overflow-y-auto"
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                >
 
                     {navItems.map((item, idx) =>
                         item.children ? (
@@ -174,7 +198,7 @@ const Sidebar = () => {
                                             activeDropdown === item.label ? null : item.label
                                         )
                                     }
-                                    className="flex items-center justify-between w-full px-3 py-2 rounded hover:bg-gray-700"
+                                    className="flex items-center justify-between w-full px-3 py-2 rounded hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white"
                                 >
                                     <div className="flex items-center gap-3 ">
                                         {item.icon}
@@ -198,7 +222,7 @@ const Sidebar = () => {
                                                     key={subIdx}
                                                     to={subItem.to}
                                                     className={({ isActive }) =>
-                                                        `flex items-center gap-2 py-1 rounded px-2 text-sm ${isActive ? "bg-gray-700" : "hover:bg-gray-700"
+                                                        `flex items-center gap-2 py-1 rounded px-2 text-sm ${isActive ? "bg-gray-800 dark:!bg-gray-700 text-white" : "hover:bg-gray-800 dark:hover:bg-gray-700 hover:text-white"
                                                         }`
                                                     }
                                                     onClick={() => setIsMobileOpen(false)}
@@ -222,7 +246,7 @@ const Sidebar = () => {
                                 key={idx}
                                 to={item.to}
                                 className={({ isActive }) =>
-                                    `flex items-center gap-3 px-3 py-2 rounded transition-colors duration-200 ${isActive ? "bg-gray-700" : "hover:bg-gray-700"
+                                    `flex items-center gap-3 px-3 py-2 rounded transition-colors duration-200 ${isActive ? "bg-gray-800 dark:bg-gray-700 text-white " : "hover:bg-gray-800 dark:hover:bg-gray-700 dark:hover:text-white hover:text-white"
                                     }`
                                 }
                                 onClick={() => setIsMobileOpen(false)}
